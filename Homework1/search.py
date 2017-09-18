@@ -147,6 +147,32 @@ def breadthFirstSearch(problem):
 def uniformCostSearch(problem):
     """Search the node of least total cost first."""
     "*** YOUR CODE HERE ***"
+
+    actionsList = []
+    visitdic    = {}
+    pqUCS       = util.PriorityQueue()
+
+    pqUCS.push((problem.getStartState(), actionsList, 0), 0)
+    while not pqUCS.isEmpty():
+        node = pqUCS.pop()
+        
+        if node[0] in visitdic:
+            continue
+        visitdic[node[0]] = 1
+        if problem.isGoalState(node[0]):
+            #print "We found one path"
+            return node[1]
+
+        for successor in problem.getSuccessors(node[0]):
+            if not successor[0] in visitdic:
+                nextActioanList = list(node[1])
+                nextActioanList.append(successor[1])
+                cumulativeCost  = successor[2] + node[2]
+                pqUCS.update((successor[0], nextActioanList, cumulativeCost), cumulativeCost)
+              
+    #print 'Whoops: not found a path'
+    return []
+
     util.raiseNotDefined()
 
 def nullHeuristic(state, problem=None):
@@ -159,6 +185,34 @@ def nullHeuristic(state, problem=None):
 def aStarSearch(problem, heuristic=nullHeuristic):
     """Search the node that has the lowest combined cost and heuristic first."""
     "*** YOUR CODE HERE ***"
+
+    actionsList = []
+    visitdic    = {}
+    pqAstar     = util.PriorityQueue()
+
+    pqAstar.push((problem.getStartState(), actionsList, 0), 0)
+    while not pqAstar.isEmpty():
+        node = pqAstar.pop()
+        
+        if node[0] in visitdic:
+            continue
+        visitdic[node[0]] = 1
+        if problem.isGoalState(node[0]):
+            #print "We found one path"
+            return node[1]
+
+        for successor in problem.getSuccessors(node[0]):
+            if not successor[0] in visitdic:
+                nextActioanList = list(node[1])
+                nextActioanList.append(successor[1])
+                cumulativeCost  = node[2] + successor[2] 
+                estimateCost    = cumulativeCost + heuristic(successor[0], problem)
+                pqAstar.update((successor[0], nextActioanList, cumulativeCost), estimateCost)
+              
+    #print 'Whoops: not found a path'
+    return []
+
+
     util.raiseNotDefined()
 
 
