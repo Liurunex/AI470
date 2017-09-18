@@ -88,24 +88,24 @@ def depthFirstSearch(problem):
     """
     "*** YOUR CODE HERE ***"
     actionsList = []
-    visitdic    = {}
+    visitlsit   = []
     dfsstack    = util.Stack()
     
     dfsstack.push((problem.getStartState(), actionsList))
     while not dfsstack.isEmpty():
         node = dfsstack.pop()
         # stack might contain same vertices if the graph constained cycle
-        if node[0] in visitdic:
+        if node[0] in visitlsit:
             continue
         
-        visitdic[node[0]]= 1
+        visitlsit.append(node[0])
         if problem.isGoalState(node[0]):
             #print "We found one path"
             return node[1]
         
         adjacentNodes = problem.getSuccessors(node[0])
         for successor in adjacentNodes:
-            if successor[0] not in visitdic:
+            if successor[0] not in visitlsit:
                 nextActioanList = list(node[1])
                 nextActioanList.append(successor[1])
                 dfsstack.push((successor[0], nextActioanList))
@@ -119,22 +119,20 @@ def breadthFirstSearch(problem):
     """Search the shallowest nodes in the search tree first."""
     "*** YOUR CODE HERE ***"
     actionsList = []
-    visitdic    = {}
+    visitlist   = []
     bfsqueue    = util.Queue()
 
     bfsqueue.push((problem.getStartState(), actionsList))
     while not bfsqueue.isEmpty():
         node = bfsqueue.pop()
-        
-        if node[0] in visitdic:
+        if node[0] in visitlist:
             continue
-        visitdic[node[0]] = 1
+        visitlist.append(node[0])
         if problem.isGoalState(node[0]):
             #print "We found one path"
             return node[1]
-
         for successor in problem.getSuccessors(node[0]):
-            if not successor[0] in visitdic:
+            if not successor[0] in visitlist:
                 nextActioanList = list(node[1])
                 nextActioanList.append(successor[1])
                 bfsqueue.push((successor[0], nextActioanList))
@@ -149,22 +147,22 @@ def uniformCostSearch(problem):
     "*** YOUR CODE HERE ***"
 
     actionsList = []
-    visitdic    = {}
+    visitlsit   = []
     pqUCS       = util.PriorityQueue()
 
     pqUCS.push((problem.getStartState(), actionsList, 0), 0)
     while not pqUCS.isEmpty():
         node = pqUCS.pop()
         
-        if node[0] in visitdic:
+        if node[0] in visitlsit:
             continue
-        visitdic[node[0]] = 1
+        visitlsit.append(node[0])
         if problem.isGoalState(node[0]):
             #print "We found one path"
             return node[1]
 
         for successor in problem.getSuccessors(node[0]):
-            if not successor[0] in visitdic:
+            if not successor[0] in visitlsit:
                 nextActioanList = list(node[1])
                 nextActioanList.append(successor[1])
                 cumulativeCost  = successor[2] + node[2]
@@ -187,22 +185,22 @@ def aStarSearch(problem, heuristic=nullHeuristic):
     "*** YOUR CODE HERE ***"
 
     actionsList = []
-    visitdic    = {}
+    visitlsit   = []
     pqAstar     = util.PriorityQueue()
 
     pqAstar.push((problem.getStartState(), actionsList, 0), 0)
     while not pqAstar.isEmpty():
         node = pqAstar.pop()
         
-        if node[0] in visitdic:
+        if node[0] in visitlsit:
             continue
-        visitdic[node[0]] = 1
+        visitlsit.append(node[0])
         if problem.isGoalState(node[0]):
             #print "We found one path"
             return node[1]
 
         for successor in problem.getSuccessors(node[0]):
-            if not successor[0] in visitdic:
+            if not successor[0] in visitlsit:
                 nextActioanList = list(node[1])
                 nextActioanList.append(successor[1])
                 cumulativeCost  = node[2] + successor[2] 
