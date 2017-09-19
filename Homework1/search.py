@@ -203,7 +203,7 @@ def aStarSearch(problem, heuristic=nullHeuristic):
             if not successor[0] in visitlsit:
                 nextActioanList = list(node[1])
                 nextActioanList.append(successor[1])
-                cumulativeCost  = node[2] + successor[2] 
+                cumulativeCost  = node[2] + successor[2]
                 estimateCost    = cumulativeCost + heuristic(successor[0], problem)
                 pqAstar.update((successor[0], nextActioanList, cumulativeCost), estimateCost)
               

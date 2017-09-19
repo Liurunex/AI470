@@ -40,6 +40,7 @@ from game import Actions
 import util
 import time
 import search
+import sys
 
 class GoWestAgent(Agent):
     "An agent that goes West until it can't."
@@ -288,6 +289,7 @@ class CornersProblem(search.SearchProblem):
         # Please add any code here which you would like to use
         # in initializing the problem
         "*** YOUR CODE HERE ***"
+        #print self.walls
         #print "NOTICE------>", self.startingPosition
         #print "CORNERS----->", self.corners
         #print "GAMESTATE:", startingGameState
@@ -362,7 +364,6 @@ class CornersProblem(search.SearchProblem):
             if self.walls[x][y]: return 999999
         return len(actions)
 
-
 def cornersHeuristic(state, problem):
     """
     A heuristic for the CornersProblem that you defined.
@@ -378,8 +379,31 @@ def cornersHeuristic(state, problem):
     """
     corners = problem.corners # These are the corner coordinates
     walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
-
     "*** YOUR CODE HERE ***"
+    
+    visited_corners = dict(state[1])
+    non_visited_corners = []
+    for eachCornor in corners:
+        if not eachCornor in visited_corners:
+            non_visited_corners.append(eachCornor)
+    
+    x,y = state[0]
+    cumEstimatedValue = 0
+    while len(non_visited_corners) != 0:
+        #default to choose first non_visited corner as next visited one
+        choosed_corner  = non_visited_corners[0]
+        #default to choose distance to first non_visited corner as locally optimum minmum distance
+        minmum_distance = abs(choosed_corner[0]-x) + abs(choosed_corner[1]-y)
+        for corner in non_visited_corners[1:]:
+            manhattan_distance = abs(corner[0]-x) + abs(corner[1]-y)
+            if manhattan_distance < minmum_distance:
+                minmum_distance = manhattan_distance
+                choosed_corner  = corner
+        x,y = choosed_corner
+        non_visited_corners.remove(choosed_corner) 
+        cumEstimatedValue += minmum_distance
+    
+    return cumEstimatedValue
     return 0 # Default to trivial solution
 
 class AStarCornersAgent(SearchAgent):
@@ -474,7 +498,57 @@ def foodHeuristic(state, problem):
     """
     position, foodGrid = state
     "*** YOUR CODE HERE ***"
-    return 0
+    foodremain = list(foodGrid.asList())
+    if len(foodremain) == 0:
+        return 0
+
+    # Minumum Spanning Tree Method
+    pq_edges       = util.PriorityQueue()
+    edge_collect   = 0
+    heuristicValue = 0
+    nodes_collect  = {}
+    union_parent   = {}
+    union_rank     = {}
+    
+    foodremain.append(position)
+    for node in foodremain:
+        union_parent[node] = node
+    for index_1, nodepos_1 in enumerate(foodremain):
+        for nodepos_2 in foodremain[index_1+1:]:
+            distance = ((nodepos_1[0]-nodepos_2[0])** 2 + (nodepos_1[1]-nodepos_2[1])** 2) ** 0.5
+            #distance = abs(nodepos_1[0]-nodepos_2[0]) + abs(nodepos_1[1]-nodepos_2[1])
+            pq_edges.push((nodepos_1, nodepos_2, distance), distance)
+
+    for node in foodremain:
+        union_parent[node] = node
+        union_rank[node]   = 0
+
+    while not pq_edges.isEmpty() and edge_collect < (len(foodremain)-1):
+        edge = pq_edges.pop()
+        if MST_union_find(union_parent, edge[0]) == MST_union_find(union_parent, edge[1]):
+            continue
+        heuristicValue += edge[2]
+        edge_collect   += 1
+        MST_merge(union_parent, union_rank, edge[0], edge[1])
+    return heuristicValue
+
+def MST_union_find(union_parent, node):
+    if union_parent[node] == node:
+        return node
+    else:
+        return MST_union_find(union_parent, union_parent[node])
+
+def MST_merge(union_parent, union_rank, node_1, node_2):
+    root_1 = MST_union_find(union_parent, node_1)
+    root_2 = MST_union_find(union_parent, node_2)
+
+    if union_rank[root_1] < union_rank[root_2]:
+        union_parent[root_1] = root_2
+    elif union_rank[root_1] > union_rank[root_2]:
+        union_parent[root_2] = root_1
+    else:
+        union_parent[root_2] = root_1
+        union_rank[root_1]  += 1
 
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
@@ -505,6 +579,15 @@ class ClosestDotSearchAgent(SearchAgent):
         problem = AnyFoodSearchProblem(gameState)
 
         "*** YOUR CODE HERE ***"
+        #min_distance = food[0]
+        #min_index    = 0
+        #for index, foodpos in enumerate(food[1:]):
+        #    distance = mazeDistance(startPosition, foodpos, gameState)
+        #    if distance < min_distance:
+        #        min_distance = distance
+        #        min_index    = index
+        #target = food[min_index]
+        return search.aStarSearch(problem)
         util.raiseNotDefined()
 
 class AnyFoodSearchProblem(PositionSearchProblem):
@@ -541,6 +624,9 @@ class AnyFoodSearchProblem(PositionSearchProblem):
         x,y = state
 
         "*** YOUR CODE HERE ***"
+        #any search alogorithm using queue like bfs, UCS, Astar will work
+        
+        return state in self.food.asList()
         util.raiseNotDefined()
 
 def mazeDistance(point1, point2, gameState):
