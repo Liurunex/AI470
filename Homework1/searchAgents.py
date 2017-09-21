@@ -516,6 +516,7 @@ def foodHeuristic(state, problem):
     for index_1, nodepos_1 in enumerate(foodremain):
         for nodepos_2 in foodremain[index_1+1:]:
             distance = ((nodepos_1[0]-nodepos_2[0])** 2 + (nodepos_1[1]-nodepos_2[1])** 2) ** 0.5
+            #distance = mazeDistance(nodepos_1, nodepos_2, problem.startingGameState)
             #distance = abs(nodepos_1[0]-nodepos_2[0]) + abs(nodepos_1[1]-nodepos_2[1])
             pq_edges.push((nodepos_1, nodepos_2, distance), distance)
 
