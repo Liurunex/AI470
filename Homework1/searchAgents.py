@@ -502,7 +502,16 @@ def foodHeuristic(state, problem):
     if len(foodremain) == 0:
         return 0
 
-    # Minumum Spanning Tree Method
+    # Method_1: Maximum maze distance between pacman and foods (expand only 4000 nodes)
+    heuristic = 0;
+    for remainfood in foodremain:
+        distance = mazeDistance(remainfood, position, problem.startingGameState)
+        heuristic = max(distance, heuristic)
+
+    return heuristic
+
+    # Method_2: Minumum Spanning Tree Method (expand 7500 nodes)
+    """
     pq_edges       = util.PriorityQueue()
     edge_collect   = 0
     heuristicValue = 0
@@ -532,6 +541,7 @@ def foodHeuristic(state, problem):
         edge_collect   += 1
         MST_merge(union_parent, union_rank, edge[0], edge[1])
     return heuristicValue
+    """
 
 def MST_union_find(union_parent, node):
     if union_parent[node] == node:
