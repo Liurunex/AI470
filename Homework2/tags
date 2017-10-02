@@ -1,0 +1,142 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BOXHEIGHT	othello-gui/othello_gui.py	/^BOXHEIGHT=80$/;"	v
+BOXWIDTH	othello-gui/othello_gui.py	/^BOXWIDTH=80$/;"	v
+Board	board.py	/^class Board():$/;"	c
+Board	othello.py	/^from board import Board, move_string, print_moves$/;"	i
+Engine	engines/__init__.py	/^class Engine(object):$/;"	c
+Engine	engines/greedy.py	/^from engines import Engine$/;"	i
+Engine	engines/human.py	/^from engines import Engine$/;"	i
+Engine	engines/random1.py	/^from engines import Engine$/;"	i
+Engine	engines/random2.py	/^from engines import Engine$/;"	i
+Engine	engines/random3.py	/^from engines import Engine$/;"	i
+Engine	engines/student.py	/^from engines import Engine$/;"	i
+GreedyEngine	engines/greedy.py	/^class GreedyEngine(Engine):$/;"	c
+HumanEngine	engines/human.py	/^class HumanEngine(Engine):$/;"	c
+IllegalMove	othello-gui/game2.py	/^class IllegalMove(Exception):$/;"	c
+RandomEngine	engines/random1.py	/^class RandomEngine(Engine):$/;"	c
+RandomEngine	engines/random2.py	/^class RandomEngine(Engine):$/;"	c
+RandomEngine	engines/random3.py	/^class RandomEngine(Engine):$/;"	c
+StudentEngine	engines/student.py	/^class StudentEngine(Engine):$/;"	c
+Tkinter	othello-gui/othello_gui.py	/^import Tkinter$/;"	i
+__directions	board.py	/^    __directions = [(1,1),(1,0),(1,-1),(0,-1),(-1,-1),(-1,0),(-1,1),(0,1)]$/;"	v	class:Board
+__getitem__	board.py	/^    def __getitem__(self, index):$/;"	m	class:Board	file:
+__init__	board.py	/^    def __init__(self):$/;"	m	class:Board
+__init__	othello-gui/game2.py	/^    def __init__(self, play_fn):$/;"	m	class:player
+__init__	othello-gui/othello.py	/^    def __init__(self, old_game = None):$/;"	m	class:game
+__init__	othello-gui/othello_gui.py	/^    def __init__(self):$/;"	m	class:player
+__str__	othello-gui/othello.py	/^    def __str__(self):$/;"	m	class:game	file:
+_discover_move	board.py	/^    def _discover_move(self, origin, direction):$/;"	m	class:Board
+_get_cost	engines/greedy.py	/^    def _get_cost(self, board, color, move):$/;"	m	class:GreedyEngine
+_get_cost	engines/student.py	/^    def _get_cost(self, board, color, move):$/;"	m	class:StudentEngine
+_get_flips	board.py	/^    def _get_flips(self, origin, direction, color):$/;"	m	class:Board
+_increment_move	board.py	/^    def _increment_move(move, direction):$/;"	m	class:Board
+absolute_import	engines/random1.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	engines/random2.py	/^from __future__ import absolute_import$/;"	i
+absolute_import	engines/random3.py	/^from __future__ import absolute_import$/;"	i
+alpha_beta	engines/student.py	/^    alpha_beta = False$/;"	v	class:StudentEngine
+argparse	othello.py	/^import argparse, copy, signal, sys, timeit, imp, traceback$/;"	i
+args	othello.py	/^    args = parser.parse_args();$/;"	v
+black_engine	othello.py	/^    black_engine = args.black_engine[0]$/;"	v
+click	othello-gui/othello_gui.py	/^    def click(self, event):$/;"	m	class:player
+copy	othello-gui/othello.py	/^    def copy(self):$/;"	m	class:game
+copy	othello.py	/^import argparse, copy, signal, sys, timeit, imp, traceback$/;"	i
+count	board.py	/^    def count(self, color):$/;"	m	class:Board
+deepcopy	engines/greedy.py	/^from copy import deepcopy$/;"	i
+deepcopy	engines/student.py	/^from copy import deepcopy$/;"	i
+directions	othello-gui/othello.py	/^directions = [(-1,-1), (-1,0), (-1,1),$/;"	v
+display	board.py	/^    def display(self, time):$/;"	m	class:Board
+draw_board	othello-gui/othello_gui.py	/^    def draw_board(self, game, last_move):$/;"	m	class:player
+edge_eval	othello-gui/othello.py	/^def edge_eval(game):$/;"	f
+engine	engines/greedy.py	/^engine = GreedyEngine$/;"	v
+engine	engines/human.py	/^engine = HumanEngine$/;"	v
+engine	engines/random1.py	/^engine = RandomEngine$/;"	v
+engine	engines/random2.py	/^engine = RandomEngine$/;"	v
+engine	engines/random3.py	/^engine = RandomEngine$/;"	v
+engine	engines/student.py	/^engine = StudentEngine$/;"	v
+engine_b	othello.py	/^	engine_b = engines_b.__dict__[black_engine].__dict__['engine']()$/;"	v
+engine_w	othello.py	/^        engine_w = engines_w.__dict__[white_engine].__dict__['engine']()$/;"	v
+engines_b	othello.py	/^        engines_b = __import__('engines.' + black_engine)$/;"	v
+engines_w	othello.py	/^        engines_w = __import__('engines.' + white_engine)$/;"	v
+execute_move	board.py	/^    def execute_move(self, move, color):$/;"	m	class:Board
+game	othello-gui/othello.py	/^class game:$/;"	c
+game	othello.py	/^def game(white_engine, black_engine, game_time=300.0, verbose=False):$/;"	f
+game2	othello-gui/othello_gui.py	/^import game2$/;"	i
+gameover	othello-gui/game2.py	/^    def gameover(self, game, last_move):$/;"	m	class:player
+gameover	othello-gui/othello_gui.py	/^    def gameover(self, game, last_move):$/;"	m	class:player
+generate_moves	othello-gui/othello.py	/^    def generate_moves(self):$/;"	m	class:game
+get_ab_minimax_move	engines/student.py	/^    def get_ab_minimax_move(self, board, color, move_num=None,$/;"	m	class:StudentEngine
+get_black_move	engines/__init__.py	/^    def get_black_move(self, board, move_num=None, $/;"	m	class:Engine
+get_col_char	board.py	/^def get_col_char(col):$/;"	f
+get_color	othello-gui/othello.py	/^    def get_color(self, tuple):$/;"	m	class:game
+get_legal_moves	board.py	/^    def get_legal_moves(self, color):$/;"	m	class:Board
+get_minimax_move	engines/student.py	/^    def get_minimax_move(self, board, color, move_num=None,$/;"	m	class:StudentEngine
+get_move	engines/__init__.py	/^    def get_move(self, board, color, move_num=None,$/;"	m	class:Engine
+get_move	engines/greedy.py	/^    def get_move(self, board, color, move_num=None,$/;"	m	class:GreedyEngine
+get_move	engines/human.py	/^    def get_move(self, board, color, move_num=None,$/;"	m	class:HumanEngine
+get_move	engines/random1.py	/^    def get_move(self, board, color, move_num=None, $/;"	m	class:RandomEngine
+get_move	engines/random2.py	/^    def get_move(self, board, color, move_num=None, $/;"	m	class:RandomEngine
+get_move	engines/random3.py	/^    def get_move(self, board, color, move_num=None, $/;"	m	class:RandomEngine
+get_move	engines/student.py	/^    def get_move(self, board, color, move_num=None,$/;"	m	class:StudentEngine
+get_move	othello-gui/greedy.py	/^def get_move(game):$/;"	f
+get_move	othello.py	/^def get_move(board, engine, color, move_num, time, **kwargs):$/;"	f
+get_moves_for_square	board.py	/^    def get_moves_for_square(self, square):$/;"	m	class:Board
+get_squares	board.py	/^    def get_squares(self, color):$/;"	m	class:Board
+get_white_move	engines/__init__.py	/^    def get_white_move(self, board, move_num=None,$/;"	m	class:Engine
+greedy	othello-gui/othello_gui.py	/^import greedy # the original implementation used minimax.py$/;"	i
+imp	othello.py	/^import argparse, copy, signal, sys, timeit, imp, traceback$/;"	i
+implementation	othello-gui/othello_gui.py	/^import greedy # the original implementation used minimax.py$/;"	i
+main	othello.py	/^def main(white_engine, black_engine, game_time, verbose):$/;"	f
+minimax	othello-gui/game2.py	/^    import minimax$/;"	i
+minimax	othello-gui/othello_gui.py	/^import greedy # the original implementation used minimax.py$/;"	i
+minimax_score	engines/student.py	/^    def minimax_score(self, board, color, curDepth, maxDepth):$/;"	m	class:StudentEngine
+move_string	board.py	/^def move_string(move):$/;"	f
+move_string	othello.py	/^from board import Board, move_string, print_moves$/;"	i
+moves_string	board.py	/^def moves_string(moves):$/;"	f
+nomove	othello-gui/othello_gui.py	/^    def nomove(self):$/;"	m	class:player
+original	othello-gui/othello_gui.py	/^import greedy # the original implementation used minimax.py$/;"	i
+othello	othello-gui/game2.py	/^    import othello$/;"	i
+othello	othello-gui/othello_gui.py	/^import othello$/;"	i
+parse_input	engines/human.py	/^    def parse_input(legal_moves, input):$/;"	m	class:HumanEngine
+parser	othello.py	/^    parser = argparse.ArgumentParser(description="Play the Othello game with different engines.")$/;"	v
+play	othello-gui/game2.py	/^    def play(self, game, opp_move):$/;"	m	class:player
+play	othello-gui/game2.py	/^def play(game, player1, player2, verbose = True):$/;"	f
+play	othello-gui/othello_gui.py	/^    def play(self, game, last_move):$/;"	m	class:player
+play_move	othello-gui/othello.py	/^    def play_move(self, move):$/;"	m	class:game
+player	othello-gui/game2.py	/^class player:$/;"	c
+player	othello-gui/othello_gui.py	/^class player:$/;"	c
+player	othello.py	/^player = {-1 : "Black", 1 : "White"}$/;"	v
+print_moves	board.py	/^def print_moves(moves):$/;"	f
+print_moves	engines/human.py	/^from board import print_moves$/;"	i
+print_moves	othello.py	/^from board import Board, move_string, print_moves$/;"	i
+py	othello-gui/othello_gui.py	/^import greedy # the original implementation used minimax.py$/;"	i
+quit	othello-gui/othello_gui.py	/^    def quit(self):$/;"	m	class:player
+random	engines/random1.py	/^import random $/;"	i
+random	engines/random2.py	/^import random $/;"	i
+random	engines/random3.py	/^import random $/;"	i
+range_size	othello-gui/othello.py	/^range_size = range(size)$/;"	v
+result	othello.py	/^result = (0, 0, 0)$/;"	v
+score	othello-gui/othello.py	/^    def score(game):$/;"	m	class:game
+set_color	othello-gui/othello.py	/^    def set_color(self, tuple, playernum):$/;"	m	class:game
+signal	othello.py	/^import argparse, copy, signal, sys, timeit, imp, traceback$/;"	i
+signal_handler	othello.py	/^def signal_handler(signal, frame):$/;"	f
+size	othello-gui/othello.py	/^size = 8$/;"	v
+size_m	othello-gui/othello.py	/^size_m = size - 1$/;"	v
+sys	othello.py	/^import argparse, copy, signal, sys, timeit, imp, traceback$/;"	i
+terminal_test	othello-gui/othello.py	/^    def terminal_test(self):$/;"	m	class:game
+the	othello-gui/othello_gui.py	/^import greedy # the original implementation used minimax.py$/;"	i
+time	othello-gui/game2.py	/^from time import time$/;"	i
+time	othello-gui/othello_gui.py	/^import time$/;"	i
+timeit	othello.py	/^import argparse, copy, signal, sys, timeit, imp, traceback$/;"	i
+traceback	othello.py	/^import argparse, copy, signal, sys, timeit, imp, traceback$/;"	i
+tuple_in_dir	othello-gui/othello.py	/^tuple_in_dir = lambda tuple,dir: (tuple[0]+dir[0], tuple[1]+dir[1])$/;"	v
+tuple_valid	othello-gui/othello.py	/^tuple_valid = lambda tuple: (tuple[0]>=0 and tuple[0]<size$/;"	v
+used	othello-gui/othello_gui.py	/^import greedy # the original implementation used minimax.py$/;"	i
+user_player	othello-gui/game2.py	/^def user_player(game):$/;"	f
+v	othello.py	/^	v = (args.v or white_engine == "human" or black_engine == "human")$/;"	v
+white_engine	othello.py	/^    white_engine = args.white_engine[0]$/;"	v
+winner	othello.py	/^def winner(board):$/;"	f
