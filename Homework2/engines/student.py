@@ -6,7 +6,7 @@ class StudentEngine(Engine):
     """ Game engine that you should you as skeleton code for your 
     implementation. """
     alpha_beta    = False
-    break_time    = 0
+    purning_times = 0
     cutoffDepth   = 4
     node_generate = 0
 
@@ -30,8 +30,8 @@ class StudentEngine(Engine):
             if (curscore > res_score):
                 res_score = curscore
                 res_move  = move
+        
         #print res_move
-        print 'breaktime:', self.break_time
         print 'node_generate:', self.node_generate
         return res_move
         # Return the best move according to our simple utility function:
@@ -113,12 +113,15 @@ class StudentEngine(Engine):
             if (curscore > res_score):
                 res_score = curscore
                 res_move  = move
-            """
+            
             alpha = max(alpha, res_score)
+            """
             if beta <= alpha:
+                print "wtf"
+                self.purning_times += 1
                 break
             """
-        print 'breaktime:', self.break_time
+        print 'purning_times:', self.purning_times
         print 'node_generate:', self.node_generate
         return res_move
         # Return the best move according to our simple utility function:
@@ -150,7 +153,7 @@ class StudentEngine(Engine):
                 beta      = min(res_score, beta)
 
             if beta <= alpha:
-                self.break_time += 1
+                self.purning_times += 1
                 break
 
         return res_score
