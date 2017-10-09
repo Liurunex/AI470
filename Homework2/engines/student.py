@@ -7,7 +7,7 @@ class StudentEngine(Engine):
     """ Game engine that you should you as skeleton code for your 
     implementation. """
     alpha_beta     = False
-    cutoffDepth    = 4
+    cutoffDepth    = 2
     cutoffDepth_AB = 4
     node_generate  = 0
     leaves_count   = 0
