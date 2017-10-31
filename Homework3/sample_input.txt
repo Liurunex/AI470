@@ -1,0 +1,3 @@
+parse([give,me,the,cities,in,virginia,'.'], answer(A,(city(A),loc(A,B),const(B,stateid(virginia))))).
+parse([what,are,the,high,points,of,states,surrounding,mississippi,?], answer(A,(high_point(B,A),loc(A,B),state(B),next_to(B,C),const(C,stateid(mississippi))))).
+parse([how,many,rivers,do,not,traverse,the,state,with,the,capital,albany,?], answer(A,count(B,(river(B),\+ (traverse(B,C),state(C),loc(D,C),capital(D),const(D,cityid(albany,_)))),A))).

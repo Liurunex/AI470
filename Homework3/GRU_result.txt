@@ -1,0 +1,48 @@
+Namespace(aug_frac=0.0, augment=None, beam_size=5, concat_num=1, concat_prob=0.0, copy='none', dev_data='data/geo880/geo880_test280.tsv', dev_frac=0.0, dev_seed=0, distract_num=0, distract_prob=0.0, domain='geoquery', float32=False, hidden_size=200, hostname='127.0.0.1', input_embedding_dim=100, input_vocab_type='raw', lambda_reg=0.0, learning_rate=0.1, load_file=None, model='encoderdecoder', model_seed=0, num_epochs=[15, 5, 5, 5], output_embedding_dim=100, output_vocab_type='raw', port=9001, reverse_input=False, rnn_type='gru', sample_file='result/sample_gru', save_file='result/params_gru', server=False, shell=False, stats_file='result/stats_gru.json', step_rule='simple', theano_fast_compile=False, theano_profile=False, train_data='data/geo880/geo880_train600.tsv', unk_cutoff=1, use_lexicon=False)
+Initializing parameters...
+Extracted vocabulary of size 175
+Extracted vocabulary of size 163
+Setup complete.
+NeuralModel.train(): iter 0 (lr = 0.1): train obj = 16606.8, dev nll = 5054.75 (14.4918 seconds)
+NeuralModel.train(): iter 1 (lr = 0.1): train obj = 9589.92, dev nll = 4101.36 (14.4555 seconds)
+NeuralModel.train(): iter 2 (lr = 0.1): train obj = 8245.02, dev nll = 3588.11 (14.4673 seconds)
+NeuralModel.train(): iter 3 (lr = 0.1): train obj = 7362.26, dev nll = 3453.79 (14.4187 seconds)
+NeuralModel.train(): iter 4 (lr = 0.1): train obj = 6485.4, dev nll = 2914.41 (14.5053 seconds)
+NeuralModel.train(): iter 5 (lr = 0.1): train obj = 5847.47, dev nll = 2759.13 (14.4415 seconds)
+NeuralModel.train(): iter 6 (lr = 0.1): train obj = 5242.38, dev nll = 2577.87 (14.4479 seconds)
+NeuralModel.train(): iter 7 (lr = 0.1): train obj = 4805.88, dev nll = 2562.7 (14.4383 seconds)
+NeuralModel.train(): iter 8 (lr = 0.1): train obj = 4517.06, dev nll = 2539.62 (14.4769 seconds)
+NeuralModel.train(): iter 9 (lr = 0.1): train obj = 4077.63, dev nll = 2499.2 (14.5785 seconds)
+NeuralModel.train(): iter 10 (lr = 0.1): train obj = 3787.33, dev nll = 2281.33 (14.9908 seconds)
+NeuralModel.train(): iter 11 (lr = 0.1): train obj = 3529.77, dev nll = 2328.45 (14.931 seconds)
+NeuralModel.train(): iter 12 (lr = 0.1): train obj = 3263.26, dev nll = 2284.3 (14.7026 seconds)
+NeuralModel.train(): iter 13 (lr = 0.1): train obj = 3033.86, dev nll = 2540.33 (14.6919 seconds)
+NeuralModel.train(): iter 14 (lr = 0.1): train obj = 2780.14, dev nll = 2244.24 (15.0258 seconds)
+NeuralModel.train(): iter 15 (lr = 0.05): train obj = 2048.88, dev nll = 2095.63 (14.7963 seconds)
+NeuralModel.train(): iter 16 (lr = 0.05): train obj = 1645.91, dev nll = 1990.34 (14.6798 seconds)
+NeuralModel.train(): iter 17 (lr = 0.05): train obj = 1429.47, dev nll = 2061.22 (14.7947 seconds)
+NeuralModel.train(): iter 18 (lr = 0.05): train obj = 1241.36, dev nll = 2031.15 (14.4593 seconds)
+NeuralModel.train(): iter 19 (lr = 0.05): train obj = 1118.61, dev nll = 2127.54 (14.4273 seconds)
+NeuralModel.train(): iter 20 (lr = 0.025): train obj = 812.125, dev nll = 2027.21 (14.7705 seconds)
+NeuralModel.train(): iter 21 (lr = 0.025): train obj = 650.541, dev nll = 2102.53 (14.7312 seconds)
+NeuralModel.train(): iter 22 (lr = 0.025): train obj = 570.898, dev nll = 2121.99 (14.3435 seconds)
+NeuralModel.train(): iter 23 (lr = 0.025): train obj = 506.138, dev nll = 2159.7 (14.3894 seconds)
+NeuralModel.train(): iter 24 (lr = 0.025): train obj = 454.099, dev nll = 2173.89 (14.7237 seconds)
+NeuralModel.train(): iter 25 (lr = 0.0125): train obj = 360.065, dev nll = 2203.42 (14.7242 seconds)
+NeuralModel.train(): iter 26 (lr = 0.0125): train obj = 314.487, dev nll = 2219.2 (14.3351 seconds)
+NeuralModel.train(): iter 27 (lr = 0.0125): train obj = 288.866, dev nll = 2248.02 (14.3136 seconds)
+NeuralModel.train(): iter 28 (lr = 0.0125): train obj = 270.239, dev nll = 2262.45 (14.3429 seconds)
+NeuralModel.train(): iter 29 (lr = 0.0125): train obj = 254.779, dev nll = 2283.59 (14.7107 seconds)
+Saving parameters...
+Evaluating on training data...
+Training data:
+Loading JAR files: evaluator.jar
+Sequence-level accuracy: 563/600 = 0.938333
+Token-level accuracy: 19189/19461 = 0.986023
+Denotation-level accuracy: 566/600 = 0.943333
+Evaluating on dev data...
+Dev data:
+Loading JAR files: evaluator.jar
+Sequence-level accuracy: 81/280 = 0.289286
+Token-level accuracy: 7257/9149 = 0.793201
+Denotation-level accuracy: 102/280 = 0.364286

@@ -1,0 +1,3 @@
+give me the cities in virginia ?	_answer ( A , ( _city ( A ) , _loc ( A , B ) , _const ( B , _stateid ( virginia ) ) ) )
+what are the high points of states surrounding mississippi ?	_answer ( A , ( _high_point ( B , A ) , _loc ( A , B ) , _state ( B ) , _next_to ( B , C ) , _const ( C , _stateid ( mississippi ) ) ) )
+how many rivers do not traverse the state with the capital albany ?	_answer ( A , _count ( B , ( _river ( B ) , \+ ( _traverse ( B , C ) , _state ( C ) , _loc ( D , C ) , _capital ( D ) , _const ( D , _cityid ( albany , _ ) ) ) ) , A ) )
