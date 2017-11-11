@@ -69,7 +69,9 @@ classifier.train(X_train, y_train)
 #double loop over all pairs of (test, train) examples and computes the distance matrix one element at a time.
 
 # Test your implementation:
-dists = classifier.compute_distances_two_loops(X_test)
+#dists = classifier.compute_distances_two_loops(X_test)
+#dists_1 = classifier.compute_distances_one_loop(X_test)
+dists = classifier.compute_distances_no_loops(X_test)
 print(dists.shape)
 
 # We can visualize the distance matrix: each row is a single test example and
@@ -372,8 +374,8 @@ from CPSC470.classifiers import Softmax
 results = {}
 best_val = -1
 best_softmax = None
-learning_rates = []
-regularization_strengths = []
+learning_rates = [1e-7, 5e-7]
+regularization_strengths = [5e4, 1e6]
 
 ################################################################################
 # TODO:                                                                        #
@@ -421,4 +423,5 @@ for i in range(10):
   plt.imshow(wimg.astype('uint8'))
   plt.axis('off')
   plt.title(classes[i])
+plt.show()
 
