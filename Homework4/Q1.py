@@ -374,7 +374,7 @@ from CPSC470.classifiers import Softmax
 results = {}
 best_val = -1
 best_softmax = None
-learning_rates = [1e-7, 5e-7]
+learning_rates = [1e-7, 2e-7, 3e-7, 4e-7, 5e-7]
 regularization_strengths = [5e4, 1e6]
 
 ################################################################################

@@ -200,14 +200,14 @@ best_net = None # store the best model into this
 # write code to sweep through possible combinations of hyperparameters          #
 # automatically like we did on the previous exercises.                          #
 #################################################################################
-hidden_size = [10,50,150]
+hidden_size = [50,100,150]
 
 results = {}
 best_val_acc = 0
 best_net = None
 
 learning_rates =  [1e-4, 1e-3]
-regularization_strengths =  [0.05, 0.1]
+regularization_strengths =  [0.5, 0.75, 1]
 
 print('running'),
 for hs in hidden_size:

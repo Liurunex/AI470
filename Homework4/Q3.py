@@ -276,7 +276,13 @@ solver = None
 # TODO: Use a Solver instance to train a TwoLayerNet that achieves at least  #
 # 50% accuracy on the validation set.                                        #
 ##############################################################################
-pass
+solver = Solver(model, data, update_rule='sgd',
+          optim_config={
+          'learning_rate': 1e-3,
+          },
+          lr_decay=0.95, num_epochs=10, batch_size=100,print_every=100)
+solver.train()
+#pass
 ##############################################################################
 #                             END OF YOUR CODE                               #
 ##############################################################################
@@ -296,5 +302,7 @@ plt.plot([0.5] * len(solver.val_acc_history), 'k--')
 plt.xlabel('Epoch')
 plt.legend(loc='lower right')
 plt.gcf().set_size_inches(15, 12)
-plt.show()    
+plt.show()  
+
+# Three Layer Model, not required  
 
